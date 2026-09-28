@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="theme-color" content="#0284c7">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <title>Бланк Качества | Яблочное пюре</title>
+  <link rel="stylesheet" href="css/style.css?v=2.3.1">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-logo">
+        <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <div>
+          <h1 class="header-title">Бланк Качества Продукции</h1>
+          <p class="header-subtitle">Яблочное пюре натуральное (ГОСТ 32742-2014)</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btnOpenHistory" class="btn-icon" title="Журнал анализов">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span class="btn-text">Журнал</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Input Card -->
+      <section class="card input-card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+            <h2 class="card-title">Ввод данных анализа</h2>
+          </div>
+          <span class="badge-req">4 показателя качества</span>
+        </div>
+
+        <form id="blankForm" class="form-grid">
+          <!-- 1. Органолептические показатели -->
+          <div class="col-12 form-section-divider">
+            <span class="form-section-title">1. Органолептические показатели (оценка)</span>
+          </div>
+
+          <!-- Внешний вид и консистенция -->
+          <div class="form-group col-6">
+            <label for="organoAppearance" class="form-label">
+              <span>Внешний вид и консистенция</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="organoAppearance" class="form-input" placeholder="Соответствует">
+            </div>
+            <span class="input-hint">По умолчанию: Соответствует</span>
+          </div>
+
+          <!-- Вкус и запах -->
+          <div class="form-group col-6">
+            <label for="organoTaste" class="form-label">
+              <span>Вкус и запах</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="organoTaste" class="form-input" placeholder="Соответствует">
+            </div>
+            <span class="input-hint">По умолчанию: Соответствует</span>
+          </div>
+
+          <!-- Цвет -->
+          <div class="form-group col-6">
+            <label for="organoColor" class="form-label">
+              <span>Цвет</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="organoColor" class="form-input" placeholder="Соответствует">
+            </div>
+            <span class="input-hint">По умолчанию: Соответствует</span>
+          </div>
+
+          <!-- Посторонние примеси -->
+          <div class="form-group col-6">
+            <label for="organoImpurities" class="form-label">
+              <span>Посторонние примеси</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="organoImpurities" class="form-input" placeholder="Отсутствуют">
+            </div>
+            <span class="input-hint">По умолчанию: Отсутствуют</span>
+          </div>
+
+          <!-- 2. Физико-химические показатели -->
+          <div class="col-12 form-section-divider">
+            <span class="form-section-title">2. Физико-химические показатели</span>
+          </div>
+
+          <!-- 1. Сухие вещества (Brix) -->
+          <div class="form-group col-6">
+            <label for="brixValue" class="form-label">
+              <span>1. Сухие вещества (Brix)</span>
+              <span class="req-star">*</span>
+              <span class="unit-tag">%</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="brixValue" class="form-input form-input-lg" step="0.1" min="0" placeholder="Например: 16.0" required>
+            </div>
+            <span class="input-hint">Норма по ГОСТ: не менее 10 %</span>
+          </div>
+
+          <!-- 2. Кислотность -->
+          <div class="form-group col-6">
+            <label for="acidityValue" class="form-label">
+              <span>2. Титруемая кислотность</span>
+              <span class="req-star">*</span>
+              <span class="unit-tag">%</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="acidityValue" class="form-input form-input-lg" step="0.01" min="0" placeholder="Например: 0.40" required>
+            </div>
+            <span class="input-hint">по яблочной к-те (0.20–0.80 %)</span>
+          </div>
+
+          <!-- 3. pH -->
+          <div class="form-group col-6">
+            <label for="phValue" class="form-label">
+              <span>3. Активная кислотность (pH)</span>
+              <span class="req-star">*</span>
+              <span class="unit-tag">pH</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="phValue" class="form-input form-input-lg" step="0.01" min="0" max="14" placeholder="Например: 3.90" required>
+            </div>
+            <span class="input-hint">Норма по ГОСТ: 3.40–4.20</span>
+          </div>
+
+          <!-- 4. Вязкость по Боствику -->
+          <div class="form-group col-6">
+            <label for="viscosityValue" class="form-label">
+              <span>4. Вязкость по Боствику</span>
+              <span class="req-star">*</span>
+              <span class="unit-tag">см/30с</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="viscosityValue" class="form-input form-input-lg" step="0.1" min="0" max="30" placeholder="Например: 6.5" required>
+            </div>
+            <span class="input-hint">20 °C, 30 с (норма: 3.0–9.0 см)</span>
+          </div>
+
+          <!-- 5. Номер партии (Опционально) -->
+          <div class="form-group col-12">
+            <label for="batchNumber" class="form-label">
+              <span>Номер / Шифр партии (опционально)</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="batchNumber" class="form-input" value="№ 1" placeholder="№ 1" autocomplete="off">
+            </div>
+          </div>
+
+          <!-- 5. Лаборант / Исполнитель -->
+          <div class="form-group col-12">
+            <label for="technician" class="form-label">
+              <span>Исполнитель (Ф.И.О., опционально)</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="text" id="technician" class="form-input" placeholder="Фамилия Имя Отчество">
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="form-actions col-12">
+            <button type="submit" id="btnGenerate" class="btn btn-primary btn-lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <span>Сформировать бланк</span>
+            </button>
+            <button type="button" id="btnReset" class="btn btn-secondary">Сброс</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Blank Preview & Actions Card -->
+      <section id="previewCard" class="card preview-card hidden">
+        <div class="card-header">
+          <div class="card-title-group">
+            <svg class="card-icon text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h2 class="card-title">Готовый бланк анализа</h2>
+          </div>
+          <span id="previewTimestamp" class="preview-timestamp">--:--:--</span>
+        </div>
+
+        <!-- Canvas & Image View -->
+        <div class="blank-preview-wrapper">
+          <canvas id="blankCanvas" style="display: none;"></canvas>
+          <img id="blankImage" src="" alt="Бланк качества" style="max-width: 100%; height: auto; border-radius: 4px; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.08); -webkit-touch-callout: default;">
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="export-actions-grid">
+          <button type="button" id="btnSaveJpg" class="btn btn-success btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <span>Сохранить фото (JPG) в галерею</span>
+          </button>
+
+          <button type="button" id="btnSaveDocx" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Скачать документ Word (.docx)</span>
+          </button>
+
+          <div class="secondary-actions">
+            <button type="button" id="btnShare" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Поделиться (Telegram / WhatsApp)</span>
+            </button>
+
+            <button type="button" id="btnCopy" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Копировать фото</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal: History / Log -->
+  <div id="historyModal" class="modal-overlay hidden">
+    <div class="modal-container history-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <h3>Журнал сформированных бланков</h3>
+        </div>
+        <button id="btnCloseHistoryModal" class="btn-close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="history-toolbar">
+          <input type="text" id="historySearch" class="form-input" placeholder="Поиск по номеру партии...">
+          <button type="button" id="btnExportCsv" class="btn btn-secondary btn-sm">Экспорт CSV</button>
+          <button type="button" id="btnClearHistory" class="btn btn-danger btn-sm">Очистить</button>
+        </div>
+
+        <div id="historyList" class="history-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Image Preview & Copy helper -->
+  <div id="imageModal" class="modal-overlay hidden">
+    <div class="modal-container" style="max-width: 500px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          <h3>Фото бланка качества</h3>
+        </div>
+        <button id="btnCloseImageModal" class="btn-close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <p style="font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 12px;">
+          Удерживайте пальцем фото ниже для копирования или сохранения в галерею:
+        </p>
+        <img id="modalPreviewImg" src="" alt="Бланк" style="max-width: 100%; border-radius: 8px; border: 2px solid #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <div style="margin-top: 16px; display: flex; gap: 10px;">
+          <button type="button" id="btnModalDownload" class="btn btn-success" style="flex: 1;">Сохранить JPG</button>
+          <button type="button" id="btnModalClose" class="btn btn-secondary">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Scripts -->
+  <script src="js/docx-generator.js?v=2.3.1"></script>
+  <script src="js/canvas-generator.js?v=2.3.1"></script>
+  <script src="js/native-bridge.js?v=2.3.1"></script>
+  <script src="js/history.js?v=2.3.1"></script>
+  <script src="js/app.js?v=2.3.1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js?v=2.3.1').then(reg => {
+          reg.update();
+        }).catch(console.warn);
+      });
+    }
+  </script>
+</body>
+</html>

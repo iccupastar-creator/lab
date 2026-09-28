@@ -1,0 +1,14 @@
+{
+  "appId": "com.lab.pureeblank",
+  "appName": "Бланк Качества",
+  "webDir": "src",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true
+  },
+  "plugins": {
+    "Filesystem": {
+      "requestLegacyExternalStorage": true
+    }
+  }
+}
